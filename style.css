@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* HERO IMAGE */
+.hero {
+    width: 100%;
+    height: 100vh; /* full screen */
+    position: relative;
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 60%;
+    transition: background-image 0.6s ease-in-out;
+}
+
+
+/* NAVBAR */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    padding: 0 25vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #fff;
+    z-index: 10;
+}
+
+
+/* MENU LINKS */
+.nav-group a {
+    text-decoration: none;
+    color: white;
+    margin: 0 18px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+/* CENTER LOGO */
+.logo {
+    font-size: 42px;
+    letter-spacing: 6px;
+    font-weight: 400;
+}
+
+/* SLIDER CONTROLS */
+.slider-controls {
+    position: absolute;
+    bottom: 150px;
+    left: 0;
+    width: 100%;
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+/* LUXURY ARROWS */
+.arrow {
+    pointer-events: all;
+    width: 100px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    position: relative;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.arrow:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* ARROW HEADS */
+.arrow::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    top: 50%;
+}
+
+.left::after {
+    left: 0;
+    transform: translateY(-50%) rotate(-135deg);
+}
+
+.right::after {
+    right: 0;
+    transform: translateY(-50%) rotate(45deg);
+}
+/* BOTTOM TEXT BLOCK */
+.bottom-text {
+    width: 100%;
+    text-align: center;
+    padding: 60px 0;
+
+    background: #f8f6f2;
+    color: #222;
+}
+
+
+/* TAGLINE */
+.tagline {
+    
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin-bottom: 80px;
+}
+
+.insta {
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #222;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.insta:hover {
+    opacity: 1;
+}
+/* FOOTER / INSTA SECTION */
+
+.insta-section {
+    background: #f8f6f2;
+    padding: 80px 0;
+    text-align: center;
+    color: #333;
+}
+
+/* Title */
+.insta-title {
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+/* Instagram Grid */
+.insta-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 1100px;
+    margin: 0 auto 40px;
+}
+
+.insta-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Handle */
+.insta-handle {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+/* Social Icons */
+.social-icons a {
+    color: #777;
+    margin: 0 12px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #000;
+}
+
+/* Footer Menu */
+.footer-nav {
+    margin: 40px 0 25px;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 18px;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+/* Copyright */
+.copyright {
+    font-size: 12px;
+    color: #888;
+}
+
+/* LONG THIN SCROLL ARROW */
+
+.scroll-top {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Main line */
+.scroll-line {
+    width: 1px;
+    height: 50px;
+    background: #777;
+    position: relative;
+    transition: 0.6s;
+    opacity: 0.6;
+}
+
+/* Arrow head */
+.scroll-line::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    border-left: 1px solid #777;
+    border-top: 1px solid #777;
+    opacity: 0.6;
+
+    transform: translateX(-50%) rotate(45deg);
+}
+
+/* Hover effect */
+.scroll-top:hover .scroll-line {
+    background: #000;
+}
+
+.scroll-top:hover .scroll-line::after {
+    border-color: #000;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 40px;
+    }
+
+    .nav-group a {
+        font-size: 12px;
+        margin: 0 10px;
+    }
+
+    .logo {
+        font-size: 32px;
+    }
+
+    .insta-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .nav-group {
+        margin: 8px 0;
+    }
+
+    .insta-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .arrow {
+        width: 60px;
+    }
+
+    .tagline {
+        font-size: 13px;
+    }
+
+    .insta {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="LD Films - Cinematic Wedding Photography & Videography">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LD Films</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Hero Background -->
+    <div class="hero" id="hero">
+        <div class="blur-gradient"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-group">
+            <a href="#">HOME</a>
+            <a href="#">PORTFOLIO</a>
+        </div>
+
+        <div class="logo">LD</div>
+
+        <div class="nav-group">
+            <a href="#">FILMS</a>
+            <a href="#">CONTACT US</a>
+        </div>
+    </nav>
+ <!-- BOTTOM TEXT -->
+<div class="bottom-text">
+    <p class="tagline">CINEMATIC WEDDING PHOTOGRAPHY & VIDEOGRAPHY</p>
+    <a href="https://instagram.com/yourusername" target="_blank" class="insta">
+        Follow us on Instagram
+    </a>
+</div>
+
+<!-- INSTAGRAM SECTION -->
+<section class="insta-section">
+
+    
+
+    <div class="insta-grid">
+        <img src="insta1.jpg" alt="">
+        <img src="insta2.jpg" alt="">
+        <img src="insta3.jpg" alt="">
+        <img src="insta4.jpg" alt="">
+        <img src="insta5.jpg" alt="">
+    </div>
+
+    <div class="insta-handle">
+        <i class="fab fa-instagram"></i>
+        @ldfilms
+    </div>
+
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <nav class="footer-nav">
+        <a href="#">HOME</a>
+        <a href="#">PORTFOLIO</a>
+        <a href="#">FILMS</a>
+        <a href="#">CONTACT US</a>
+    </nav>
+
+    <p class="copyright">
+        All content Copyright © 2026 LD Films
+    </p>
+
+    <div class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <span class="scroll-line"></span>
+    </div>
+
+    
+
+
+</section>
+
+
+    
+
+    <!-- SLIDER ARROWS -->
+    <div class="slider-controls">
+        <button class="arrow left" onclick="prevSlide()"></button>
+        <button class="arrow right" onclick="nextSlide()"></button>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        const images = [
+            "bg.jpg",
+            "bg2.jpg",
+            "bg3.jpg"
+        ];
+
+        let index = 0;
+        const hero = document.getElementById("hero");
+
+        hero.style.backgroundImage = `url(${images[index]})`;
+
+        function nextSlide() {
+            index = (index + 1) % images.length;
+            hero.style.backgroundImage = `url(${images[index]})`;
+        }
+
+        function prevSlide() {
+            index = (index - 1 + images.length) % images.length;
+            hero.style.backgroundImage = `url(${images[index]})`;
+        }
+    </script>
+
+</body>
+</html>
