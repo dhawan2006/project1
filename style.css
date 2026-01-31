@@ -304,3 +304,132 @@ body {
         font-size: 16px;
     }
 }
+
+/* CONTACT PAGE OVERLAY */
+/* CONTACT PAGE DESIGN */
+
+.contact-page {
+    background: #f7f4ee;
+    font-family: 'Cormorant Garamond', serif;
+    color: #333;
+}
+
+
+/* HERO */
+
+.contact-hero {
+    height: 60vh;
+    background: url("bg2.jpg") center/cover;
+    position: relative;
+}
+
+.contact-hero .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+
+/* NAV */
+
+.contact-nav {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;   /* center everything */
+
+    gap: 60px;                /* control spacing here */
+
+    padding: 30px;
+    color: white;
+}
+
+
+.contact-nav a {
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.contact-nav .logo {
+    font-size: 32px;
+}
+
+
+
+
+/* FORM */
+
+.contact-form-section {
+    max-width: 700px;
+    margin: auto;
+    padding: 80px 20px;
+    text-align: left;
+}
+
+.contact-form-section h1 {
+    text-align: center;
+    font-size: 42px;
+}
+
+.contact-form-section p {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+.contact-form label {
+    display: block;
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: none;
+    background: #fff;
+    border-radius: 3px;
+    font-size: 14px;
+
+}
+
+
+.checkbox-group {
+    margin-top: 10px;
+}
+
+.checkbox-group label {
+    display: block;
+    font-size: 14px;
+}
+
+
+.contact-form button {
+
+    margin-top: 40px;
+    padding: 12px 40px;
+    background: #9c8c6a;
+    border: none;
+    color: white;
+    letter-spacing: 2px;
+    cursor: pointer;
+
+}
+
+
+#formStatus {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+
+
