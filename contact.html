@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Contact | LD Films</title>
+<title>Contact | LD Films</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style1.css">
 
 </head>
 
@@ -17,197 +18,176 @@
 <body class="contact-page">
 
 
-<!-- HEADER IMAGE -->
+<!-- HERO -->
 <section class="contact-hero">
 
-    <div class="overlay"></div>
+  <div class="overlay"></div>
 
-    <nav class="contact-nav">
+  <nav class="contact-nav">
 
-        <a href="index.html">HOME</a>
-        <a href="portfolio.html">PORTFOLIO</a>
+    <a href="index.html">HOME</a>
+    <a href="portfolio.html">PORTFOLIO</a>
 
-        <h2 class="logo">LD</h2>
+    <h2 class="logo">LD</h2>
 
-        <a href="films.html">FILMS</a>
-        <a href="contact.html" class="active">CONTACT US</a>
+    <a href="#">FILMS</a>
+    <a href="contact.html">CONTACT</a>
 
-    </nav>
+  </nav>
 
 </section>
 
 
-
-<!-- FORM SECTION -->
+<!-- FORM -->
 <section class="contact-form-section">
 
-    <h1>Let’s Tell Your Story</h1>
-
-    <p>We would love to be part of your special day</p>
-
-
-    <form id="contactForm" class="contact-form">
+<h1>Let’s Tell Your Story</h1>
+<p>We would love to be part of your special day</p>
 
 
-        <label>Your Name *</label>
-        <input type="text" id="name" required>
+<form id="contactForm" class="contact-form">
 
+<label>Your Name *</label>
+<input type="text" id="name" required>
 
-        <label>Partner’s Name</label>
-        <input type="text" id="partner">
+<label>Email *</label>
+<input type="email" id="email" required>
 
+<label>Phone *</label>
+<input type="text" id="phone" required>
 
-        <label>Email *</label>
-        <input type="email" id="email" required>
+<label>Event Type *</label>
 
+<div class="checkbox-group">
+<label><input type="radio" name="event" value="Wedding"> Wedding</label>
+<label><input type="radio" name="event" value="Engagement"> Engagement</label>
+</div>
 
-        <label>Phone *</label>
-        <input type="text" id="phone" required>
+<label>Message *</label>
+<textarea id="message" rows="5"></textarea>
 
+<button type="submit">SEND MESSAGE</button>
 
-        <label>Instagram</label>
-        <input type="text" id="instagram">
+<p id="formStatus"></p>
 
-
-        <label>Event Type *</label>
-        <div class="checkbox-group">
-
-            <label><input type="radio" name="event" value="Wedding"> Wedding</label>
-            <label><input type="radio" name="event" value="Engagement"> Engagement</label>
-            <label><input type="radio" name="event" value="Eshoot"> E-shoot</label>
-            <label><input type="radio" name="event" value="Other"> Other</label>
-
-        </div>
-
-
-        <label>Event Date *</label>
-        <input type="date" id="date" required>
-
-
-        <label>Location *</label>
-        <input type="text" id="location" required>
-
-
-        <label>Service *</label>
-        <select id="service">
-
-            <option>Photo Only</option>
-            <option>Video Only</option>
-            <option>Photo + Video</option>
-
-        </select>
-
-
-        <label>Budget</label>
-        <input type="text" id="budget">
-
-
-        <label>Your Vision *</label>
-        <textarea id="message" rows="5" required></textarea>
-
-
-        <button type="submit">SEND MESSAGE</button>
-
-        <p id="formStatus"></p>
-
-
-    </form>
+</form>
 
 </section>
 
 
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-<!-- SCRIPT -->
+
 <script>
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* HERO */
+
+gsap.from(".contact-hero",{
+  scale:1.1,
+  opacity:0,
+  duration:1.3
+});
+
+
+gsap.from(".contact-nav a,.contact-nav .logo",{
+  y:-20,
+  opacity:0,
+  stagger:0.15,
+  delay:0.3
+});
+
+
+/* FORM */
+
+gsap.from(".contact-form-section h1",{
+  scrollTrigger:".contact-form-section",
+  y:30,
+  opacity:0
+});
+
+
+gsap.from(".contact-form label,.contact-form input,.contact-form textarea",{
+  scrollTrigger:".contact-form",
+  y:15,
+  opacity:0,
+  stagger:0.05
+});
+
+
+gsap.from(".contact-form button",{
+  scrollTrigger:".contact-form",
+  scale:0.8,
+  opacity:0,
+  delay:0.5,
+  ease:"back.out(1.7)"
+});
+
+
+/* SUBMIT */
 
 document.getElementById("contactForm").addEventListener("submit", async function(e){
 
-    e.preventDefault();
+  e.preventDefault();
 
-    const status = document.getElementById("formStatus");
+  const status = document.getElementById("formStatus");
+  status.innerText = "Sending...";
 
-    status.innerText = "Sending...";
+  const eventType = document.querySelector('input[name="event"]:checked');
 
+  const data = {
 
-    const eventType = document.querySelector('input[name="event"]:checked');
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
 
+    eventType: eventType ? eventType.value : "",
 
-    const data = {
+    message: document.getElementById("message").value
+  };
 
-        name: document.getElementById("name").value,
+  try {
 
-        partner: document.getElementById("partner").value,
+    const response = await fetch("https://ldfilms-backend.onrender.com/contact", {
 
-        email: document.getElementById("email").value,
+      method: "POST",
 
-        phone: document.getElementById("phone").value,
+      headers: {
+        "Content-Type": "application/json"
+      },
 
-        instagram: document.getElementById("instagram").value,
+      body: JSON.stringify(data)
 
-        eventType: eventType ? eventType.value : "",
+    });
 
-        date: document.getElementById("date").value,
+    const result = await response.json();
 
-        location: document.getElementById("location").value,
+    if(result.success){
 
-        service: document.getElementById("service").value,
+      status.innerText = "✅ Message Sent Successfully!";
+      document.getElementById("contactForm").reset();
 
-        budget: document.getElementById("budget").value,
+    } else {
 
-        message: document.getElementById("message").value
-
-    };
-
-
-    try {
-
-        const response = await fetch("https://ldfilms-backend.onrender.com/contact", {
-
-
-
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify(data)
-
-        });
-
-
-        const result = await response.json();
-
-
-        if(result.success){
-
-            status.innerText = "✅ Thank you! We will contact you soon.";
-
-            document.getElementById("contactForm").reset();
-
-        }
-
-        else{
-
-            status.innerText = "❌ " + result.message;
-
-        }
+      status.innerText = "❌ " + result.message;
 
     }
 
-    catch (error) {
-        
-        // This will print the REAL error in your browser console (F12)
-        console.error("❌ FETCH ERROR:", error);
+  }
+  catch(error){
 
-        status.innerText = "❌ Server not connected (Check Console)";
+    console.error("Error:", error);
 
-    }
+    status.innerText = "❌ Server Not Connected";
+
+  }
 
 });
 
 </script>
-
 
 </body>
 </html>
