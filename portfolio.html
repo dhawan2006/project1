@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <!-- SEO -->
+  <meta name="description" content="LD Films Portfolio - Cinematic Wedding Photography & Videography">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Portfolio | LD Films</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="LD Films | Portfolio">
+  <meta property="og:description" content="Explore our cinematic wedding stories.">
+  <meta property="og:image" content="https://yourdomain.com/preview.jpg">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style1.css">
+
+</head>
+
+<body class="portfolio-page">
+
+  <!-- ================= HERO ================= -->
+
+  <section class="portfolio-hero">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+      <div class="nav-group">
+        <a href="index.html">HOME</a>
+        <a href="portfolio.html" class="active">PORTFOLIO</a>
+      </div>
+
+      <div class="logo">LD</div>
+
+      <div class="nav-group">
+        <a href="#">FILMS</a>
+        <a href="contact.html">CONTACT</a>
+      </div>
+
+    </nav>
+
+    <!-- HERO TEXT -->
+    <div class="hero-content">
+      <h1>PORTFOLIO</h1>
+    </div>
+
+  </section>
+
+  <!-- ================= PORTFOLIO ================= -->
+
+<section class="portfolio">
+
+  <div class="portfolio-grid">
+
+    <!-- ITEM 1 -->
+    <div class="portfolio-item left">
+
+      <div class="portfolio-text">
+        <h2>LAKSH & <br>NAVI BRAR</h2>
+      </div>
+
+      <div class="portfolio-img">
+        <img src="wedding1.jpg" alt="Wedding Shoot">
+      </div>
+
+    </div>
+
+
+    <!-- ITEM 2 -->
+    <div class="portfolio-item right">
+
+      <div class="portfolio-text">
+        <h2>AMAN &<br> SIMRAN</h2>
+      </div>
+
+      <div class="portfolio-img">
+        <img src="wedding2.jpg" alt="Wedding Shoot">
+      </div>
+
+    </div>
+
+
+    <!-- ITEM 3 -->
+    <div class="portfolio-item left">
+
+      <div class="portfolio-text">
+        <h2>ROHIT &<BR>NEHA</h2>
+      </div>
+
+      <div class="portfolio-img">
+        <img src="wedding3.jpg" alt="Wedding Shoot">
+      </div>
+
+    </div>
+
+
+    <!-- ITEM 4 -->
+    <div class="portfolio-item right">
+
+      <div class="portfolio-text">
+        <h2>KARAN &<BR> PRIYA</h2>
+      </div>
+
+      <div class="portfolio-img">
+        <img src="wedding4.jpg" alt="Wedding Shoot">
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+  <!-- ================= INSTAGRAM ================= -->
+
+  <section class="insta-section">
+
+    <div class="insta-handle">
+      <i class="fab fa-instagram"></i> @ldfilms
+    </div>
+
+    <div class="social-icons">
+
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+
+    </div>
+
+    <nav class="footer-nav">
+
+      <a href="index.html">HOME</a>
+      <a href="portfolio.html">PORTFOLIO</a>
+      <a href="#">FILMS</a>
+      <a href="contact1.html">CONTACT</a>
+
+    </nav>
+
+    <p class="copyright">
+      © 2026 LD Films. All Rights Reserved.
+    </p>
+
+  </section>
+
+  <!-- ================= GSAP ================= -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* HERO LOAD */
+
+    gsap.from(".navbar", {
+      y: -40,
+      opacity: 0,
+      duration: 1
+    });
+
+    gsap.from(".logo", {
+      scale: 0.5,
+      opacity: 0,
+      delay: 0.3,
+      duration: 1,
+      ease: "back.out(1.7)"
+    });
+
+    gsap.from(".hero-content h1", {
+      y: 40,
+      opacity: 0,
+      delay: 0.5,
+      duration: 1
+    });
+
+    gsap.from(".hero-content p", {
+      y: 20,
+      opacity: 0,
+      delay: 0.7,
+      duration: 1
+    });
+
+
+    /* PORTFOLIO SCROLL */
+
+    gsap.from(".portfolio-item", {
+      scrollTrigger: {
+        trigger: ".portfolio",
+        start: "top 80%"
+      },
+      y: 60,
+      opacity: 0,
+      stagger: 0.25,
+      duration: 1
+    });
+
+
+    /* HOVER EFFECT */
+
+    document.querySelectorAll(".portfolio-img").forEach(img => {
+
+      img.addEventListener("mouseenter", () => {
+        gsap.to(img.querySelector("img"), {
+          scale: 1.08,
+          duration: 0.5
+        });
+      });
+
+      img.addEventListener("mouseleave", () => {
+        gsap.to(img.querySelector("img"), {
+          scale: 1,
+          duration: 0.5
+        });
+      });
+
+    });
+
+  </script>
+
+</body>
+
+</html>
