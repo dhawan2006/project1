@@ -1,137 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="LD Films - Cinematic Wedding Photography & Videography">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LD Films</title>
+<meta charset="UTF-8">
+<meta name="description" content="LD Films - Cinematic Wedding Photography">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>LD Films</title>
+<meta property="og:title" content="LD Films | Cinematic Weddings">
+<meta property="og:image" content="https://yourdomain.com/preview.jpg">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="style1.css">
+
 </head>
 
 <body>
 
 <!-- HERO -->
-<div class="hero" id="hero">
-    <div class="blur-gradient"></div>
-</div>
+<div class="hero">
 
-<!-- NAVBAR -->
-<nav class="navbar">
+  <div class="slide active" id="slide1"></div>
+  <div class="slide" id="slide2"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
 
     <div class="nav-group">
-        <a href="#">HOME</a>
-        <a href="#">PORTFOLIO</a>
+      <a href="index.html">HOME</a>
+      <a href="portfolio.html">PORTFOLIO</a>
     </div>
 
     <div class="logo">LD</div>
 
     <div class="nav-group">
-        <a href="#">FILMS</a>
-        <a href="contact.html">CONTACT US</a>
+      <a href="#">FILMS</a>
+      <a href="contact.html">CONTACT</a>
     </div>
 
-</nav>
+  </nav>
+
+  <!-- SLIDER CONTROLS -->
+  <div class="slider-controls">
+    <button class="arrow left" onclick="prevSlide()"></button>
+    <button class="arrow right" onclick="nextSlide()"></button>
+  </div>
+
+</div>
 
 
 <!-- BOTTOM TEXT -->
 <div class="bottom-text">
 
-    <p class="tagline">CINEMATIC WEDDING PHOTOGRAPHY & VIDEOGRAPHY</p>
+  <p class="tagline">
+    CINEMATIC WEDDING PHOTOGRAPHY & VIDEOGRAPHY
+  </p>
 
-    <a href="https://instagram.com/yourusername" target="_blank" class="insta">
-        Follow us on Instagram
-    </a>
+  <a href="https://www.instagram.com/dhawan.laksh/" class="insta">
+    Follow us on Instagram
+  </a>
 
 </div>
 
 
-<!-- INSTAGRAM SECTION -->
+<!-- INSTAGRAM -->
 <section class="insta-section">
 
-    <div class="insta-grid">
-        <img src="insta1.jpg">
-        <img src="insta2.jpg">
-        <img src="insta3.jpg">
-        <img src="insta4.jpg">
-        <img src="insta5.jpg">
-    </div>
+  <div class="insta-grid">
 
-    <div class="insta-handle">
-        <i class="fab fa-instagram"></i>
-        @ldfilms
-    </div>
+    <img src="insta1.jpg">
+    <img src="insta2.jpg">
+    <img src="insta3.jpg">
+    <img src="insta4.jpg">
+    <img src="insta5.jpg">
 
-    <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-    </div>
+  </div>
 
-    <nav class="footer-nav">
-        <a href="#">HOME</a>
-        <a href="#">PORTFOLIO</a>
-        <a href="#">FILMS</a>
-        <a href="#contact">CONTACT US</a>
-    </nav>
+  <div class="insta-handle">
+    <i class="fab fa-instagram"></i> @ldfilms
+  </div>
 
-    <p class="copyright">
-        All content Copyright © 2026 LD Films
-    </p>
+  <div class="social-icons">
+
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+
+  </div>
+
+  <nav class="footer-nav">
+
+    <a href="index.html">HOME</a>
+    <a href="#">PORTFOLIO</a>
+    <a href="#">FILMS</a>
+    <a href="contact.html">CONTACT</a>
+
+  </nav>
+
+  <p class="copyright">
+    © 2026 LD Films. All Rights Reserved.
+  </p>
 
 </section>
 
 
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 
-
-<!-- SLIDER ARROWS -->
-<div class="slider-controls">
-
-    <button class="arrow left" onclick="prevSlide()"></button>
-
-    <button class="arrow right" onclick="nextSlide()"></button>
-
-</div>
-
-
-
-<!-- SCRIPT -->
 <script>
 
-    /* HERO SLIDER */
+gsap.registerPlugin(ScrollTrigger);
 
-    const images = [
-        "bg.jpg",
-        "bg2.jpg",
-        "bg3.jpg"
-    ];
+/* HERO LOAD */
 
-    let index = 0;
+gsap.from(".navbar", {
+  y: -40,
+  opacity: 0,
+  duration: 1
+});
 
-    const hero = document.getElementById("hero");
+gsap.from(".logo", {
+  scale: 0.5,
+  opacity: 0,
+  delay: 0.3,
+  duration: 1,
+  ease: "back.out(1.7)"
+});
 
-    hero.style.backgroundImage = `url(${images[index]})`;
+gsap.from(".nav-group a", {
+  y: 20,
+  opacity: 0,
+  stagger: 0.15,
+  delay: 0.5
+});
 
-    function nextSlide() {
+gsap.from(".hero", {
+  scale: 1.1,
+  opacity: 0,
+  duration: 1.5
+});
 
-        index = (index + 1) % images.length;
 
-        hero.style.backgroundImage = `url(${images[index]})`;
+/* SCROLL */
 
-    }
+gsap.from(".tagline", {
+  scrollTrigger: ".bottom-text",
+  y: 30,
+  opacity: 0
+});
 
-    function prevSlide() {
+gsap.from(".insta", {
+  scrollTrigger: ".bottom-text",
+  y: 20,
+  opacity: 0,
+  delay: 0.2
+});
 
-        index = (index - 1 + images.length) % images.length;
 
-        hero.style.backgroundImage = `url(${images[index]})`;
+gsap.from(".insta-grid img", {
+  scrollTrigger: ".insta-grid",
+  scale: 0.8,
+  opacity: 0,
+  stagger: 0.15
+});
 
-    }
+
+gsap.from(".social-icons a", {
+  scrollTrigger: ".social-icons",
+  y: 20,
+  opacity: 0,
+  stagger: 0.2
+});
+
+
+/* SLIDER */
+
+const images = ["bg.jpg","bg2.jpg","bg3.jpg"];
+
+let index = 0;
+let showingFirst = true;
+
+const slide1 = document.getElementById("slide1");
+const slide2 = document.getElementById("slide2");
+
+slide1.style.backgroundImage = `url(${images[0]})`;
+
+function changeSlide(nextIndex){
+
+  const current = showingFirst ? slide1 : slide2;
+  const next = showingFirst ? slide2 : slide1;
+
+  next.style.backgroundImage = `url(${images[nextIndex]})`;
+
+  gsap.set(next,{opacity:0,scale:1.02});
+
+  next.classList.add("active");
+  current.classList.remove("active");
+
+  
+
+    gsap.to(next,{
+    opacity:1,
+    scale:1,
+    duration:0.5,
+    ease:"power3.out"
+    });
+
+
+  showingFirst=!showingFirst;
+  index=nextIndex;
+}
+
+function nextSlide(){
+  changeSlide((index+1)%images.length);
+}
+
+function prevSlide(){
+  changeSlide((index-1+images.length)%images.length);
+}
+
+
 
 </script>
 
